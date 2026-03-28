@@ -1,7 +1,7 @@
 import time
 
 # Testing list for assignment, feel free to modify.
-testing_list = ["Man2ca", "Gr+-avill4", "4be,ja", "beg.g1ng", "a.sf3e", "pure"]
+testing_list: list = ["Man2ca", "Gr+-avill4", "4be,ja", "beg.g1ng", "a.sf3e", "pure", 234, 0.42]
 
 # Removes al non alphanumeric characters
 def clean_text(text: str) -> str:
@@ -95,12 +95,15 @@ def main():
     """
     print(f"\nList for testing: {testing_list}\n")
     user_input = input("Input text: ")
+    
     clean_input = clean_text(user_input)
     result_reverse = reverse_string(clean_input)
     print(f"\nReverse using slicing: {result_reverse[0]} | {result_reverse[1]:.6f}s\n")
     result_loop = reverse_string_loop(clean_input)
     print(f"Reverse using loop:    {result_loop[0]} | {result_loop[1]:.6f}s\n")
-    list_input = reshape(testing_list)
+    
+    
+    list_input = clean_text(reshape(testing_list))
     reverse_list = reverse_string(list_input)
     print(f"\nReverse list using slicing: {reverse_list[0]} | {reverse_list[1]:.6f}s\n")
     reverse_loop_list = reverse_string_loop(list_input)
