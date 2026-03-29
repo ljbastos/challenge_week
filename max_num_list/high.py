@@ -6,7 +6,6 @@ n_floats: list = [round(random.uniform(-10.0, 10.0), 2) for _ in range(10)]
 # Extending integers list to add floats list
 numbers.extend(n_floats)
 
-
 # Check for invalid values
 def check_values(numbers: list) -> bool:
     """ Check given list does not contain invalid values.
