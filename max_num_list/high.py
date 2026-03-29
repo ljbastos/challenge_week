@@ -34,7 +34,18 @@ def find_max(numbers: list) -> None:
     for num in numbers:
         if num > max_value:
             max_value = num
-    print(f"Largets number is: {max_value} and index value is: {numbers.index(max_value)}")
+    print(f"Max number using FOR LOOP is:    {max_value} and index value is: {numbers.index(max_value)}\n")
+
+
+def find_max_wh(numbers: list) -> None:
+    max_value = numbers[0]
+    run_times = len(numbers)
+    step = 0
+    while step < run_times:
+        if numbers[step] > max_value:
+            max_value = numbers[step]
+        step += 1
+    print(f"Max number using WHILE LOOP is:  {max_value} and index value is: {numbers.index(max_value)}")
 
 
 # Main loop
@@ -45,6 +56,7 @@ def main():
     if check_values(numbers):
         try:
             find_max(numbers)
+            find_max_wh(numbers)
         except IndexError:
             print("Exiting...\tList cannot be empty")
     else:
