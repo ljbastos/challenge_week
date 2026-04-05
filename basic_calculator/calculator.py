@@ -87,6 +87,21 @@ def exponents(a: int, b: int) -> int:
     return int(pow(a,b))
 
 
+def save_file(log: str) -> None:
+    """Save result to 'log.txt'
+
+    Args:
+        log (str): Encoded message to save.
+    """
+    try:
+        with open('log.txt', 'a') as file:
+            file.write(log + '\n')
+            file.close()
+            print("Result saved.")
+    except PermissionError:
+        print("Permission denied to create file")
+
+
 # Main loop
 def main():
     print("\033c", end="")
@@ -105,17 +120,29 @@ def main():
                 second_number = int(input("Enter second number: "))
                 match operation:
                     case "add":
-                        print(f"\nResult: {add(first_number, second_number)}")
+                        result = add(first_number, second_number)
+                        print(f"\nResult: {result}")
+                        save_file(f"{first_number} + {second_number} = {result}")
                     case "rest":
-                        print(f"\nResult: {rest(first_number, second_number)}")
+                        result = rest(first_number, second_number)
+                        print(f"\nResult: {result}")
+                        save_file(f"{first_number} - {second_number} = {result}")
                     case "multiply":
-                        print(f"\nResult: {multiply(first_number, second_number)}")
+                        result = multiply(first_number, second_number)
+                        print(f"\nResult: {result}")
+                        save_file(f"{first_number} * {second_number} = {result}")
                     case "divide":
-                        print(f"\nResult: {divide(first_number, second_number)}")
+                        result = divide(first_number, second_number)
+                        print(f"\nResult: {result}")
+                        save_file(f"{first_number} / {second_number} = {result}")
                     case "modulus":
-                        print(f"\nResult: {modulus(first_number, second_number)}")
+                        result = modulus(first_number, second_number)
+                        print(f"\nResult: {result}")
+                        save_file(f"{first_number} % {second_number} = {result}")
                     case "exponents":
-                        print(f"\nResult: {exponents(first_number, second_number)}")
+                        result = exponents(first_number, second_number)
+                        print(f"\nResult: {result}")
+                        save_file(f"{first_number} ^ {second_number} = {result}")
             except ValueError:
                 print("Please use integers numbers only.")
                 continue
